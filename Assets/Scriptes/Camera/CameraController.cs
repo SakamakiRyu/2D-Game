@@ -13,16 +13,6 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        SetPosition();
-    }
 
-    /// <summary>
-    /// ƒJƒƒ‰‚ÌÀ•W‚ğİ’è‚·‚é
-    /// </summary>
-    private void SetPosition()
-    {
-        var player = _target.transform.position;
-        var camPos = new Vector3(player.x, player.y, -10f);
-        _camera.transform.position = camPos;
     }
 }
