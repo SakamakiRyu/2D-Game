@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 /// <summary>
@@ -21,7 +22,7 @@ public class PlayerMoveController : MonoBehaviour
 
     private void Update()
     {
-        Walk();
+        Move();
     }
 
     #region Private Field
@@ -53,14 +54,50 @@ public class PlayerMoveController : MonoBehaviour
     }
 
     /// <summary>
-    /// 歩く
+    /// 動く
     /// </summary>
-    private void Walk()
+    private void Move()
+    {
+        if (Input.GetButton("Fire3")) // 左シフト
+        {
+            Sprint();
+        }
+        else
+        {
+            Walk();
+        }
+    }
+
+    /// <summary>
+    /// 移動入力の取得
+    /// </summary>
+    /// <returns>入力された方向ベクトル</returns>
+    private Vector2 GetInputDirection()
     {
         var hori = Input.GetAxisRaw("Horizontal");
         var ver = Input.GetAxisRaw("Vertical");
         var dir = Vector2.right * hori + Vector2.up * ver;
+
+        return dir;
+    }
+
+    /// <summary>
+    /// 歩く
+    /// </summary>
+    private void Walk()
+    {
+        var dir = GetInputDirection();
         var velo = dir * _date.GetWalkingSpeed;
+        _rb.velocity = velo;
+    }
+
+    /// <summary>
+    /// 走る
+    /// </summary>
+    private void Sprint()
+    {
+        var dir = GetInputDirection();
+        var velo = dir * _date.GetSprintSpeed;
         _rb.velocity = velo;
     }
     #endregion

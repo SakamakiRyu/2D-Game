@@ -3,29 +3,49 @@ using UnityEngine;
 /// <summary>
 /// プレイヤーを撮影するカメラの操作コンポーネント
 /// </summary>
-public class PlayerFilmingCameraController : MonoBehaviour
+public class CameraController : MonoBehaviour
 {
     [SerializeField]
-    private Camera _camera;
+    private Camera _mainCamera;
 
     [SerializeField]
-    private GameObject _target;
-
-    [SerializeField]
-    private float _minOrthographicSize;
+    private PlayerMoveController _followTarget;
 
     [SerializeField]
     private float _maxOrthographicSize;
 
     [SerializeField]
+    private float _minOrthographicSize;
+
+    [SerializeField]
     private float _chengeValue;
+
+    // カメラのZ座標。
+    private const float CAM_POS_Z = -10f;
+
+    private void Start()
+    {
+        SyncTransform(_followTarget.transform.position);
+    }
 
     private void Update()
     {
+        SyncTransform(_followTarget.transform.position);
+
         if (CheckMouseWheelInput())
         {
             OnChengedMouseWheelValue();
         }
+    }
+
+    /// <summary>
+    /// ターゲットとポジションを同期する
+    /// </summary>
+    private void SyncTransform(Vector3 target)
+    {
+        var pos = target;
+        pos.z = CAM_POS_Z;
+        _mainCamera.transform.position = pos;
     }
 
     /// <summary>
@@ -41,7 +61,7 @@ public class PlayerFilmingCameraController : MonoBehaviour
     }
 
     /// <summary>
-    /// マウスホイールの入力をされた時に呼ばれる処理
+    /// マウスホイールの入力がされた時に呼ばれる処理
     /// </summary>
     private void OnChengedMouseWheelValue()
     {
@@ -50,7 +70,7 @@ public class PlayerFilmingCameraController : MonoBehaviour
         // 値の変化量
         var chengeValue = _chengeValue;
         // カメラの描画サイズ
-        var afterCamSize = _camera.orthographicSize;
+        var afterCamSize = _mainCamera.orthographicSize;
         // マウスホイールの入力に応じて変化量を変える
         chengeValue = inputValue < 0 ? chengeValue : chengeValue * -1;
         // 変更後の値
@@ -68,6 +88,6 @@ public class PlayerFilmingCameraController : MonoBehaviour
             afterCamSize = _minOrthographicSize;
         }
 
-        _camera.orthographicSize = afterCamSize;
+        _mainCamera.orthographicSize = afterCamSize;
     }
 }
