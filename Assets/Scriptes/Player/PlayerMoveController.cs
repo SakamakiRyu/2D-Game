@@ -69,19 +69,6 @@ public class PlayerMoveController : MonoBehaviour
     }
 
     /// <summary>
-    /// 移動入力の取得
-    /// </summary>
-    /// <returns>入力された方向ベクトル</returns>
-    private Vector2 GetInputDirection()
-    {
-        var hori = Input.GetAxisRaw("Horizontal");
-        var ver = Input.GetAxisRaw("Vertical");
-        var dir = Vector2.right * hori + Vector2.up * ver;
-
-        return dir;
-    }
-
-    /// <summary>
     /// 歩く
     /// </summary>
     private void Walk()
@@ -99,6 +86,19 @@ public class PlayerMoveController : MonoBehaviour
         var dir = GetInputDirection();
         var velo = dir * _date.GetSprintSpeed;
         _rb.velocity = velo;
+    }
+
+    /// <summary>
+    /// 移動入力の取得
+    /// </summary>
+    /// <returns>入力された方向ベクトル</returns>
+    private Vector2 GetInputDirection()
+    {
+        var hori = Input.GetAxisRaw("Horizontal");
+        var ver = Input.GetAxisRaw("Vertical");
+        var dir = Vector2.right * hori + Vector2.up * ver;
+
+        return dir;
     }
     #endregion
 }
