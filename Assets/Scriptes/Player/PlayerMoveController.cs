@@ -1,5 +1,5 @@
-using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// プレイヤーの物理挙動を操作するコンポーネント
@@ -15,90 +15,29 @@ public class PlayerMoveController : MonoBehaviour
     private Rigidbody2D _rb;
     #endregion
 
+    #region Unity Function
     private void Start()
     {
-        Init();
     }
 
     private void Update()
     {
-        Move();
     }
+    #endregion
 
-    #region Private Field
+    #region Public Function
     /// <summary>
-    /// 初期化
+    /// InputSystemによってMoveの入力がされた時に呼ばれる処理
     /// </summary>
-    private void Init()
+    public void OnMove(InputAction.CallbackContext context)
     {
-        CheckReferencedComponents();
-    }
-
-    /// <summary>
-    /// 必要コンポーネントが参照できているかの確認
-    /// </summary>
-    private bool CheckReferencedComponents()
-    {
-        if (_rb is null)
-        {
-            Debug.LogError("Doesn't reference a RigitBody2D !");
-            return false;
-        }
-
-        if (_date is null)
-        {
-            Debug.LogError("Doesn't Reference a PlayerDateController !");
-            return false;
-        }
-        return true;
-    }
-
-    /// <summary>
-    /// 動く
-    /// </summary>
-    private void Move()
-    {
-        if (Input.GetButton("Fire3")) // 左シフト
-        {
-            Sprint();
-        }
-        else
-        {
-            Walk();
-        }
-    }
-
-    /// <summary>
-    /// 歩く
-    /// </summary>
-    private void Walk()
-    {
-        var dir = GetInputDirection();
+        var v2 = context.ReadValue<Vector2>();
+        var dir = Vector2.right * v2.x + Vector2.up * v2.y;
         var velo = dir * _date.GetWalkingSpeed;
         _rb.velocity = velo;
     }
+    #endregion
 
-    /// <summary>
-    /// 走る
-    /// </summary>
-    private void Sprint()
-    {
-        var dir = GetInputDirection();
-        var velo = dir * _date.GetSprintSpeed;
-        _rb.velocity = velo;
-    }
-
-    /// <summary>
-    /// 移動入力の取得
-    /// </summary>
-    /// <returns>入力された方向ベクトル</returns>
-    private Vector2 GetInputDirection()
-    {
-        var hori = Input.GetAxisRaw("Horizontal");
-        var ver = Input.GetAxisRaw("Vertical");
-        var dir = Vector2.right * hori + Vector2.up * ver;
-
-        return dir;
-    }
+    #region Private Field
     #endregion
 }
