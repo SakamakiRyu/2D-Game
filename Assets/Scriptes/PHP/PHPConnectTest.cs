@@ -18,7 +18,7 @@ public class PHPConnectTest : MonoBehaviour
 
     IEnumerator DoConect()
     {
-        UnityWebRequest request = UnityWebRequest.Get(WWW);
+        var request = UnityWebRequest.Post(WWW,"a");
         yield return request.SendWebRequest();
         Debug.Log(request.downloadHandler.text);
     }

@@ -36,6 +36,14 @@ public class PlayerMoveController : MonoBehaviour
         var velo = dir * _date.GetWalkingSpeed;
         _rb.velocity = velo;
     }
+
+    /// <summary>
+    /// InputSystem‚É‚æ‚Á‚ÄFire‚Ì“ü—Í‚ª‚³‚ê‚½‚ÉŒÄ‚Î‚ê‚éˆ—
+    /// </summary>
+    public void OnFire(InputAction.CallbackContext context)
+    {
+
+    }
     #endregion
 
     #region Private Field
