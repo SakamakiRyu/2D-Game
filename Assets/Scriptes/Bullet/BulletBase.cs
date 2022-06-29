@@ -1,15 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
 /// ’e‚ÌŠî’êƒNƒ‰ƒX
 /// </summary>
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D), (typeof(CircleCollider2D)))]
 public abstract class BulletBase : MonoBehaviour
 {
     [SerializeField]
-    protected BulletDate _bulletDate;
+    protected float _bulletSpeed;
 
     [SerializeField]
     protected Rigidbody2D _rb2d;
@@ -17,18 +15,18 @@ public abstract class BulletBase : MonoBehaviour
     /// <summary>
     /// ’e‚ğ”­Ë‚·‚é
     /// </summary>
-    /// <param name="dir">”­Ë•ûŒü</param>
+    /// <param name="dir">”­Ë‚Ì•ûŒü</param>
     public abstract void Fire(Vector2 dir);
 
-    public virtual void SetPosition(Vector3 position)
-    {
-        this.gameObject.transform.position = position;
-    }
+    /// <summary>
+    /// ’e‚ª‚ ‚Á‚½Û‚Ìˆ—
+    /// </summary>
+    protected abstract void OnHit();
 
-    public void ChengeActiveMode(bool active)
-    {
-        this.gameObject.SetActive(active);
-    }
+    protected abstract void OnBecameInvisible();
 
-    public abstract void Update();
+    protected virtual void OnTriggerEnter2D()
+    {
+        OnHit();
+    }
 }

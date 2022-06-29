@@ -5,13 +5,23 @@ using UnityEngine;
 /// </summary>
 public class NormalBullet : BulletBase
 {
-    public override void Update()
+    private void Start()
     {
         Fire(Vector2.right);
     }
 
     public override void Fire(Vector2 dir)
     {
-        _rb2d.velocity = dir * _bulletDate._speed;
+        _rb2d.velocity = dir * _bulletSpeed;
+    }
+
+    protected override void OnBecameInvisible()
+    {
+        Destroy(this.gameObject);
+    }
+
+    protected override void OnHit()
+    {
+        Debug.Log("hit");
     }
 }
