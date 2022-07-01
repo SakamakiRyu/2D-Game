@@ -46,30 +46,20 @@ public class BulletsDate : ScriptableObject
     /// <summary>
     /// 弾のリスト
     /// </summary>
-    public List<Bullet> BulletsList;
+    public Bullet[] BulletsArray;
 
     /// <summary>
     /// 弾のデータを取得
     /// </summary>
-    /// <param name="type"></param>
-    /// <returns></returns>
     public Bullet GetBulletDate(Type type, Size size)
     {
-        return BulletsList[(int)type];
-    }
-
-    public string GetBulletName(Type type)
-    {
-        return BulletsList[(int)type].Name;
-    }
-
-    public float GetBulletSpeed(Type type)
-    {
-        return BulletsList[(int)type].Speed;
-    }
-
-    public int GetBulletPower(Type type)
-    {
-        return BulletsList[((int)type)].Power;
+        foreach (var item in BulletsArray)
+        {
+            if (item.Type == type && item.Size == size)
+            {
+                return item;
+            }
+        }
+        return null;
     }
 }

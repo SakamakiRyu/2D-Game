@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 /// <summary>
@@ -15,6 +16,10 @@ public class BulletController : MonoBehaviour
     #endregion
 
     #region Unity Fucntion
+    private void Start()
+    {
+    }
+
     private void OnBecameInvisible()
     {
         Destroy(this.gameObject);
@@ -24,19 +29,18 @@ public class BulletController : MonoBehaviour
     {
         if (collider.CompareTag("Enemy"))
         {
-            OnHit();
         }
     }
 
     private void OnValidate()
     {
-        if (_rb2d == null)
+        if (_rb2d is null)
         {
             TryGetComponent(out _rb2d);
             _rb2d.gravityScale = 0f;
         }
 
-        if (_collider == null)
+        if (_collider is null)
         {
             TryGetComponent(out _collider);
             if (_collider)
@@ -52,17 +56,9 @@ public class BulletController : MonoBehaviour
     /// ’e‚ª”­Ë‚³‚ê‚½‚Ìˆ—
     /// </summary>
     /// <param name="dir">”­Ë‚Ì•ûŒü</param>
-    public void Fired(Vector2 dir)
+    public void Fire(Vector2 dir, float speed)
     {
-
-    }
-
-    /// <summary>
-    /// ’e‚ª‚ ‚½‚Á‚½Û‚Ìˆ—
-    /// </summary>
-    public void OnHit()
-    {
-
+        _rb2d.velocity = dir * speed;
     }
     #endregion
 }

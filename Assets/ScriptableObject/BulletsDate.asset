@@ -12,20 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7be93979db0c65449ca303e88d5d1f7, type: 3}
   m_Name: BulletsDate
   m_EditorClassIdentifier: 
-  BulletsList:
-  - Name: "\u901A\u5E38\u5F3ES"
+  BulletsArray:
+  - Name: "\u901A\u5E38\u5F3E"
     Type: 0
     Size: 0
-    Speed: 5
+    Speed: 8
     Power: 1
-  - Name: "\u901A\u5E38\u5F3EM"
+  - Name: "\u901A\u5E38\u5F3E"
     Type: 0
     Size: 1
-    Speed: 5
+    Speed: 8
     Power: 3
-  - Name: "\u901A\u5E38\u5F3EL"
+  - Name: "\u901A\u5E38\u5F3E"
     Type: 0
     Size: 2
-    Speed: 5
+    Speed: 10
     Power: 5
-  BulletPrefab: {fileID: -8584342269115175756, guid: b6b4a2c18c6b0f64fa38260c7b8d8b74, type: 3}
