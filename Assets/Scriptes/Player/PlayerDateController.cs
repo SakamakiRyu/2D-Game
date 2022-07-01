@@ -7,21 +7,13 @@ public class PlayerDateController : MonoBehaviour
 {
     #region Field
     [SerializeField]
-    private float _walkingSpeed;
-
-    [SerializeField]
-    private float _sprintSpeed;
+    private float _movingSpeed;
     #endregion
 
     #region Property
     /// <summary>
-    /// 歩行速度
+    /// 移動速度
     /// </summary>
-    public float GetWalkingSpeed => _walkingSpeed;
-
-    /// <summary>
-    /// ダッシュ時の速度
-    /// </summary>
-    public float GetSprintSpeed => _sprintSpeed;
+    public float GetWalkingSpeed => _movingSpeed;
     #endregion
 }

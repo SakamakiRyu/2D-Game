@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,22 +6,41 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class CanonController : MonoBehaviour
 {
+    #region Define
+    /// <summary>
+    /// –C‘ä
+    /// </summary>
+    [System.Serializable]
+    public class Canon
+    {
+        public string Name;
+        public BulletsDate.Type Type;
+        public BulletsDate.Size Size;
+        public Transform Muzzle;
+    }
+    #endregion
+
+    #region Field
     [SerializeField]
-    private Transform _mainMuzzleTransform;
+    private BulletsDate _bulletsDate;
 
     [SerializeField]
-    private BulletBase _bullet;
+    private BulletController _bulletPrefab;
+
+    [SerializeField]
+    private Canon[] CanonsArray;
+    #endregion
 
     public void OnFire(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            MainFire(_bullet);
+
         }
     }
 
-    public void MainFire(BulletBase bullet)
+    private void OnValidate()
     {
-        Instantiate(bullet, _mainMuzzleTransform.position, Quaternion.identity);
+
     }
 }

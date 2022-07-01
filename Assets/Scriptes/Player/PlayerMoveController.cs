@@ -23,6 +23,12 @@ public class PlayerMoveController : MonoBehaviour
     private void Update()
     {
     }
+
+    private void OnValidate()
+    {
+        TryGetComponent(out _date);
+        TryGetComponent(out _rb);
+    }
     #endregion
 
     #region Public Function

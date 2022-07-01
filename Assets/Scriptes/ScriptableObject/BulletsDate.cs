@@ -5,8 +5,8 @@ using UnityEngine;
 /// <summary>
 /// 弾のデータを管理するスクリプタブルオブジェクト
 /// </summary>
-[CreateAssetMenu(fileName ="Create bullets date",menuName = "BulletsDate")]
-public class BulletDate : ScriptableObject
+[CreateAssetMenu(fileName = "Create bullets date", menuName = "BulletsDate")]
+public class BulletsDate : ScriptableObject
 {
     #region Define
     /// <summary>
@@ -15,7 +15,18 @@ public class BulletDate : ScriptableObject
     public enum Type
     {
         None = -1,
-        Normal
+        Normal,
+    }
+
+    /// <summary>
+    /// 弾のサイズ
+    /// </summary>
+    public enum Size
+    {
+        None = -1,
+        S,
+        M,
+        L
     }
 
     /// <summary>
@@ -26,6 +37,7 @@ public class BulletDate : ScriptableObject
     {
         public string Name;
         public Type Type;
+        public Size Size;
         public float Speed;
         public int Power;
     }
@@ -36,7 +48,12 @@ public class BulletDate : ScriptableObject
     /// </summary>
     public List<Bullet> BulletsList;
 
-    public Bullet GetBulletDate(Type type)
+    /// <summary>
+    /// 弾のデータを取得
+    /// </summary>
+    /// <param name="type"></param>
+    /// <returns></returns>
+    public Bullet GetBulletDate(Type type, Size size)
     {
         return BulletsList[(int)type];
     }
