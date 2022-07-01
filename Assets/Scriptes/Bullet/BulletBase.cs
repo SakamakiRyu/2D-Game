@@ -6,27 +6,50 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), (typeof(CircleCollider2D)))]
 public abstract class BulletBase : MonoBehaviour
 {
+    #region Field
     [SerializeField]
-    protected float _bulletSpeed;
+    protected BulletDate.Type _type;
+
+    [SerializeField]
+    protected BulletDate _bulletDate;
 
     [SerializeField]
     protected Rigidbody2D _rb2d;
+    #endregion
 
+    #region Abstract Fucntion
     /// <summary>
-    /// ’e‚ğ”­Ë‚·‚é
+    /// ’e‚ª”­Ë‚³‚ê‚½‚Ìˆ—
     /// </summary>
     /// <param name="dir">”­Ë‚Ì•ûŒü</param>
-    public abstract void Fire(Vector2 dir);
+    public abstract void Fired(Vector2 dir);
 
     /// <summary>
-    /// ’e‚ª‚ ‚Á‚½Û‚Ìˆ—
+    /// ’e‚ª‚ ‚½‚Á‚½Û‚Ìˆ—
     /// </summary>
     protected abstract void OnHit();
+    #endregion
 
-    protected abstract void OnBecameInvisible();
-
-    protected virtual void OnTriggerEnter2D()
+    #region Unity Fucntion
+    protected virtual void OnBecameInvisible()
     {
-        OnHit();
+        Destroy(this.gameObject);
     }
+
+    protected virtual void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.CompareTag("Enemy"))
+        {
+            OnHit();
+        }
+    }
+
+    private void OnValidate()
+    {
+        if (_rb2d is null)
+        {
+            TryGetComponent(out _rb2d);
+        }
+    }
+    #endregion
 }

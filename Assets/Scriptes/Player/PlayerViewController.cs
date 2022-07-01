@@ -8,7 +8,8 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class PlayerViewController : MonoBehaviour
 {
-
+    [SerializeField]
+    private SpriteRenderer _spriteRenderer;
 
     void Start()
     {

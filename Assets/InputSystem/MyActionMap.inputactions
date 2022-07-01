@@ -95,7 +95,7 @@
                     "name": "",
                     "id": "25693583-3559-4fc9-b61c-bf0a06ef9efa",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "Press(pressPoint=0.5)",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Fire",

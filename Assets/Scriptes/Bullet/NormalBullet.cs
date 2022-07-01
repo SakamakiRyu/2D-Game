@@ -7,12 +7,13 @@ public class NormalBullet : BulletBase
 {
     private void Start()
     {
-        Fire(Vector2.right);
+        Fired(Vector2.right);
     }
 
-    public override void Fire(Vector2 dir)
+    public override void Fired(Vector2 dir)
     {
-        _rb2d.velocity = dir * _bulletSpeed;
+        var speed = _bulletDate.GetBulletSpeed(_type);
+        _rb2d.velocity = dir * speed;
     }
 
     protected override void OnBecameInvisible()
@@ -22,6 +23,6 @@ public class NormalBullet : BulletBase
 
     protected override void OnHit()
     {
-        Debug.Log("hit");
+        Destroy(this.gameObject);
     }
 }
