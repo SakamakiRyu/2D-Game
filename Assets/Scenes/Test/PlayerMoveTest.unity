@@ -133,8 +133,9 @@ GameObject:
   m_Component:
   - component: {fileID: 39198223}
   - component: {fileID: 39198224}
+  - component: {fileID: 39198225}
   m_Layer: 0
-  m_Name: Canons
+  m_Name: CanonManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,20 +172,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletsDate: {fileID: 11400000, guid: 403429d9df9d4a041866fe21f4c430b4, type: 2}
+  _canonDefaultDate: {fileID: 11400000, guid: 67d6ee3e173a5a04bb72238c112411a9, type: 2}
   _bulletPrefab: {fileID: -8584342269115175756, guid: b6b4a2c18c6b0f64fa38260c7b8d8b74, type: 3}
-  CanonsArray:
-  - Name: Main
-    Type: 0
-    Size: 2
-    Muzzle: {fileID: 1307869836}
-  - Name: Sub1
-    Type: 0
-    Size: 1
-    Muzzle: {fileID: 1196679733}
-  - Name: Sub2
-    Type: 0
-    Size: 2
-    Muzzle: {fileID: 1267401498}
+  _mainCanon: {fileID: 1307869838}
+  _sub1Canon: {fileID: 1196679735}
+  _sub2Canon: {fileID: 1267401500}
+--- !u!114 &39198225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39198222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc20621ff0f19a04eb49c501d6e8f336, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mainRenderer: {fileID: 1307869837}
+  _sub1Renderer: {fileID: 1196679734}
+  _sub2Renderer: {fileID: 1267401499}
 --- !u!1 &182647571
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,6 +362,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1196679733}
   - component: {fileID: 1196679734}
+  - component: {fileID: 1196679735}
   m_Layer: 0
   m_Name: Sub1
   m_TagString: Untagged
@@ -429,6 +437,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1196679735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196679732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d4ee81f02636a64abc64aba92fe44be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1267401497
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,6 +459,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1267401498}
   - component: {fileID: 1267401499}
+  - component: {fileID: 1267401500}
   m_Layer: 0
   m_Name: Sub2
   m_TagString: Untagged
@@ -513,6 +534,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1267401500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267401497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d4ee81f02636a64abc64aba92fe44be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1295634782
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,6 +682,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1307869836}
   - component: {fileID: 1307869837}
+  - component: {fileID: 1307869838}
   m_Layer: 0
   m_Name: Main
   m_TagString: Untagged
@@ -723,6 +757,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1307869838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307869835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d4ee81f02636a64abc64aba92fe44be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1409777339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -780,37 +826,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45e8c33fd06f24e4db6bb69f8f8ede8b, type: 3}
---- !u!1 &1741054328
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1741054329}
-  m_Layer: 0
-  m_Name: BulletPool
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1741054329
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1741054328}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.17735918, y: -1.0955014, z: -0.008094373}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2294630744310669888
 Transform:
   m_ObjectHideFlags: 0

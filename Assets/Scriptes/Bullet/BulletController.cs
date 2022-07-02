@@ -7,17 +7,24 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), (typeof(CircleCollider2D)))]
 public class BulletController : MonoBehaviour
 {
+    #region Define
+    #endregion
+
     #region Field
     [SerializeField]
     private Rigidbody2D _rb2d;
 
     [SerializeField]
     private CircleCollider2D _collider;
+
+    /// <summary>’e‚Ìî•ñ</summary>
+    private BulletsDate.Bullet _bulletDate;
     #endregion
 
     #region Unity Fucntion
     private void Start()
     {
+        SetVelocity(_bulletDate.Speed);
     }
 
     private void OnBecameInvisible()
@@ -27,9 +34,6 @@ public class BulletController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.CompareTag("Enemy"))
-        {
-        }
     }
 
     private void OnValidate()
@@ -53,12 +57,21 @@ public class BulletController : MonoBehaviour
 
     #region Public Fucntion
     /// <summary>
-    /// ’e‚ª”­Ë‚³‚ê‚½‚Ìˆ—
+    /// ’e‚Ìî•ñ‚ğİ’è‚·‚é
     /// </summary>
-    /// <param name="dir">”­Ë‚Ì•ûŒü</param>
-    public void Fire(Vector2 dir, float speed)
+    public void SetBulletDate(BulletsDate.Bullet bulletDate)
     {
-        _rb2d.velocity = dir * speed;
+        _bulletDate = bulletDate;
+    }
+    #endregion
+
+    #region Private Function
+    /// <summary>
+    /// ’e‚Ì‘¬“x‚ğİ’è‚·‚é
+    /// </summary>
+    private void SetVelocity(float speed)
+    {
+        _rb2d.velocity = Vector2.right * speed;
     }
     #endregion
 }

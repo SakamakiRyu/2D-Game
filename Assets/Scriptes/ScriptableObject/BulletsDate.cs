@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// 弾のデータを管理するスクリプタブルオブジェクト
 /// </summary>
-[CreateAssetMenu(fileName = "Create bullets date", menuName = "BulletsDate")]
+[CreateAssetMenu(fileName = "Create bullets date", menuName = "Bullets Date")]
 public class BulletsDate : ScriptableObject
 {
     #region Define
