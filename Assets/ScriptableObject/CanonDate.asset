@@ -13,12 +13,6 @@ MonoBehaviour:
   m_Name: CanonDate
   m_EditorClassIdentifier: 
   DefaultDates:
-  - Name: Main
+    Name: 
     Type: 0
-    Size: 1
-  - Name: Sub1
-    Type: 0
-    Size: 1
-  - Name: Sub2
-    Type: 0
-    Size: 1
+    Size: 0
