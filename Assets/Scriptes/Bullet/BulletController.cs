@@ -18,7 +18,7 @@ public class BulletController : MonoBehaviour
     private CircleCollider2D _collider;
 
     /// <summary>’e‚Ìî•ñ</summary>
-    private BulletsDate.Bullet _bulletDate;
+    private BulletDate.Bullet _bulletDate;
     #endregion
 
     #region Unity Fucntion
@@ -59,7 +59,7 @@ public class BulletController : MonoBehaviour
     /// <summary>
     /// ’e‚Ìî•ñ‚ğİ’è‚·‚é
     /// </summary>
-    public void SetBulletDate(BulletsDate.Bullet bulletDate)
+    public void SetBulletDate(BulletDate.Bullet bulletDate)
     {
         _bulletDate = bulletDate;
     }

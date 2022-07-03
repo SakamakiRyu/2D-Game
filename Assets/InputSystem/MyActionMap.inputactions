@@ -15,27 +15,9 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Fire1",
+                    "name": "Fire",
                     "type": "Button",
                     "id": "64c9538b-f6c5-4503-9d8a-68013df785c5",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Fire2",
-                    "type": "Button",
-                    "id": "3e7df344-8a41-4f0f-b757-9712c54611ee",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Fire3",
-                    "type": "Button",
-                    "id": "b1fe51e9-3b65-4fa6-9ee2-1c1c3d687a5a",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press",
@@ -100,45 +82,12 @@
                 },
                 {
                     "name": "",
-                    "id": "5907995d-2174-499c-9c69-d3623b1af231",
-                    "path": "<Gamepad>/leftStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "25693583-3559-4fc9-b61c-bf0a06ef9efa",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Fire1",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "fe745bff-4120-4e07-ac08-f88e25d73e79",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Fire2",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5b93f44f-844b-4b69-bc83-f5156a3faf47",
-                    "path": "<Mouse>/middleButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Fire3",
+                    "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

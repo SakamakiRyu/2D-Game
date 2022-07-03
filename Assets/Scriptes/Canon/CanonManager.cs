@@ -12,10 +12,10 @@ public class CanonManager : MonoBehaviour
 
     #region Field
     [SerializeField]
-    private BulletsDate _bulletsDate;
+    private BulletDate _bulletsDate;
 
     [SerializeField]
-    private CanonDefaultDate _canonDefaultDate;
+    private CanonDate _canonDefaultDate;
 
     [SerializeField]
     private BulletController _bulletPrefab;
