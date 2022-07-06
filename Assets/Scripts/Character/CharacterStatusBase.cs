@@ -3,7 +3,7 @@ using UnityEngine;
 /// <summary>
 /// キャラクターの基底クラス
 /// </summary>
-public abstract class CharacterBase : MonoBehaviour
+public abstract class CharacterStatusBase : MonoBehaviour
 {
     /// <summary>
     /// 死んでいるか
@@ -14,9 +14,4 @@ public abstract class CharacterBase : MonoBehaviour
     /// 現在のHP
     /// </summary>
     public int CurrentHP { get; protected set; } = default;
-
-    /// <summary>
-    /// 移動する
-    /// </summary>
-    protected abstract void Move(float movingSpeed);
 }
