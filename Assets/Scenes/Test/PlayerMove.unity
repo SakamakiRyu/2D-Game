@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &127277318
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -221,8 +221,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64674e93bf2519a4597f4f54e3d51ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dataBase: {fileID: 0}
-  _type: 2
+  _dataBase: {fileID: 11400000, guid: fc377d16b388cf24db880fc3a6ba9820, type: 2}
+  _type: 0
   _rb2d: {fileID: 127277321}
 --- !u!50 &127277321
 Rigidbody2D:
@@ -521,7 +521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!50 &1862352077
 Rigidbody2D:
   serializedVersion: 4

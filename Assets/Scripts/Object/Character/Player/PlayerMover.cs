@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 /// <summary>
-/// RigidBodyでプレイヤーを動かすコンポーネント
+/// RigidBody2Dでプレイヤーを動かすコンポーネント
 /// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMover : MonoBehaviour
@@ -19,6 +19,13 @@ public class PlayerMover : MonoBehaviour
     #endregion
 
     #region Unity Function
+    private void OnValidate()
+    {
+        if (_rb2d)
+        {
+            _rb2d.gravityScale = 0f;
+        }
+    }
     #endregion
 
     /// <summary>
@@ -43,25 +50,5 @@ public class PlayerMover : MonoBehaviour
     private Vector2 CreateVelocity(Vector2 dir)
     {
         return dir * _movingSpeed;
-    }
-
-    /// <summary>
-    /// 速度ベクトルを設定する(物理的に動く)
-    /// </summary>
-    /// <param name="velocity">速度ベクトル</param>
-    private void SetVelocity(Vector2 velocity)
-    {
-        if (_rb2d)
-        {
-            _rb2d.velocity = velocity;
-        }
-    }
-
-    private void OnValidate()
-    {
-        if (_rb2d)
-        {
-            _rb2d.gravityScale = 0f;
-        }
     }
 }
