@@ -1,23 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEditor;
+using UnityEngine;
 
-[CreateAssetMenu(menuName = "Date/Bullet DateBase")]
-public class BulletDateBase : Editor
+namespace UniversWar
 {
-    public BulletDate[] BulletsDateArray;
-
-    public BulletDate GetBulletDate(int ID)
+    /// <summary>
+    /// 弾の情報を管理するスクリプタブルオブジェクト
+    /// </summary>
+    [CreateAssetMenu(menuName = "Date/Bullet DateBase")]
+    public class BulletDateBase : Editor
     {
-        return BulletsDateArray[ID];
-    }
+        [SerializeField]
+        private BulletDate[] BulletsDateArray;
 
-    private void OnValidate()
-    {
-        for (int i = 0; i < BulletsDateArray.Length; i++)
+        /// <summary>
+        /// 弾の情報を取得
+        /// </summary>
+        public BulletDate GetBulletDate(BulletDate.BulletType type)
         {
-            BulletsDateArray[i].ID = i;
+            return BulletsDateArray[(int)type];
+        }
+
+        private void OnValidate()
+        {
+            for (int i = 0; i < BulletsDateArray.Length; i++)
+            {
+                BulletsDateArray[i].ID = i;
+            }
         }
     }
 }

@@ -13,6 +13,23 @@ MonoBehaviour:
   m_Name: BulletDateBase
   m_EditorClassIdentifier: 
   BulletsDateArray:
-  - {fileID: 11400000, guid: f388a6973d40d0547a4f074dcecacdfc, type: 2}
-  - {fileID: 11400000, guid: 56871723f4d0f2143a1cd41dced65624, type: 2}
-  - {fileID: 11400000, guid: 02727a372906c3846bdebaf52185272f, type: 2}
+  - Name: Normal
+    Type: 0
+    ID: 0
+    Power: 0
+    Image: {fileID: 0}
+  - Name: 
+    Type: 0
+    ID: 1
+    Power: 0
+    Image: {fileID: 0}
+  - Name: 
+    Type: 0
+    ID: 2
+    Power: 0
+    Image: {fileID: 0}
+  - Name: 
+    Type: 0
+    ID: 3
+    Power: 0
+    Image: {fileID: 0}
