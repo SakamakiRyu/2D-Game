@@ -32,7 +32,7 @@ public class PlayerMover : MonoBehaviour
         // 速度ベクトルを作成
         var velo = CreateVelocity(dir);
         // 作成した速度を設定する
-        SetVelocity(velo);
+        _rb2d.SetVelocity(velo);
     }
 
     /// <summary>
