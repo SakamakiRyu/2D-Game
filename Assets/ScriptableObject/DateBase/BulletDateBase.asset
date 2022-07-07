@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd09d1e952f4dee4d8d2fa5f3c840fcf, type: 3}
+  m_Name: BulletDateBase
+  m_EditorClassIdentifier: 
+  BulletsDateArray:
+  - {fileID: 11400000, guid: f388a6973d40d0547a4f074dcecacdfc, type: 2}
+  - {fileID: 11400000, guid: 56871723f4d0f2143a1cd41dced65624, type: 2}
+  - {fileID: 11400000, guid: 02727a372906c3846bdebaf52185272f, type: 2}
