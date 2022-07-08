@@ -13,23 +13,8 @@ MonoBehaviour:
   m_Name: BulletDateBase
   m_EditorClassIdentifier: 
   BulletsDateArray:
-  - Name: Normal
+  - Name: "\u901A\u5E38\u5F3E"
     Type: 0
     ID: 0
-    Power: 0
-    Image: {fileID: 0}
-  - Name: 
-    Type: 0
-    ID: 1
-    Power: 0
-    Image: {fileID: 0}
-  - Name: 
-    Type: 0
-    ID: 2
-    Power: 0
-    Image: {fileID: 0}
-  - Name: 
-    Type: 0
-    ID: 3
-    Power: 0
+    Power: 1
     Image: {fileID: 0}

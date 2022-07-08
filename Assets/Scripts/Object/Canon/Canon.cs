@@ -1,12 +1,11 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace UniversWar
 {
     /// <summary>
     /// 砲台コンポーネント
     /// </summary>
-    public class Canon : MonoBehaviour
+    public sealed class Canon : MonoBehaviour
     {
         [SerializeField]
         private Transform _muzzleTransform;
@@ -14,17 +13,25 @@ namespace UniversWar
         [SerializeField]
         private Bullet _bulletPrefab;
 
-        public void OnFire(InputAction.CallbackContext context)
-        {
-            if (context.started)
-            {
+        public void RequestFire(Vector2 dir) => Fire(dir);
 
-            }
+        /// <summary>
+        /// 弾を発射する
+        /// </summary>
+        /// <param name="direction">発射する方向</param>
+        private void Fire(Vector2 direction)
+        {
+            var bullet = CreateBullet(_bulletPrefab, _muzzleTransform.position);
+            bullet.GetComponent<Bullet>();
+            bullet.SetDirection(direction);
         }
 
-        public void Fire(Bullet bulletObject, Vector2 velocity)
+        /// <summary>
+        /// 弾を生成
+        /// </summary>
+        private Bullet CreateBullet(Bullet bullet, Vector3 createPos)
         {
-
+            return Instantiate(bullet, createPos, Quaternion.identity);
         }
     }
 }

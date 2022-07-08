@@ -8,42 +8,28 @@ namespace UniversWar
     [RequireComponent(typeof(Rigidbody2D))]
     public class Bullet : MonoBehaviour
     {
+        #region Field
         [SerializeField]
-        private BulletDateBase _dataBase;
-
-        [SerializeField]
-        private BulletDate.BulletType _type;
+        private float _speed;
 
         [SerializeField]
         private Rigidbody2D _rb2d;
+        #endregion
 
-        private BulletDate _date;
+        #region Unity Function
+        #endregion
 
-        private void Awake()
+        #region Public Function
+        /// <summary>
+        /// 弾の速度ベクトルを設定する
+        /// </summary>
+        public void SetDirection(Vector2 direction)
         {
-            _dataBase.GetBulletDate(_type);
-        }
-
-        private void OnEnable()
-        {
-            if (_date is null)
+            if (_rb2d)
             {
-                _dataBase.GetBulletDate(_type);
+                _rb2d.SetVelocity(direction);
             }
         }
-
-        public void Fire(Vector2 firePoint)
-        {
-            var velo = _date.CreateVelocity(_type, firePoint, null);
-            _rb2d.velocity = velo;
-        }
-
-        /// <summary>
-        /// 弾の種類を変える
-        /// </summary>
-        private void ChengeBulletType(BulletDate.BulletType type)
-        {
-            _type = type;
-        }
+        #endregion
     }
 }
