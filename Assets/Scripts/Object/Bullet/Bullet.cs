@@ -6,7 +6,7 @@ namespace UniversWar
     /// 弾コンポーネント
     /// </summary>
     [RequireComponent(typeof(Rigidbody2D))]
-    public class Bullet : MonoBehaviour
+    public class T : MonoBehaviour
     {
         #region Field
         [SerializeField]
@@ -27,7 +27,8 @@ namespace UniversWar
         {
             if (_rb2d)
             {
-                _rb2d.SetVelocity(direction);
+                var velo = direction * _speed;
+                _rb2d.SetVelocity(velo);
             }
         }
         #endregion

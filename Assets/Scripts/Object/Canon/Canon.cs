@@ -11,7 +11,7 @@ namespace UniversWar
         private Transform _muzzleTransform;
 
         [SerializeField]
-        private Bullet _bulletPrefab;
+        private T _bulletPrefab;
 
         public void RequestFire(Vector2 dir) => Fire(dir);
 
@@ -22,14 +22,14 @@ namespace UniversWar
         private void Fire(Vector2 direction)
         {
             var bullet = CreateBullet(_bulletPrefab, _muzzleTransform.position);
-            bullet.GetComponent<Bullet>();
+            bullet.GetComponent<T>();
             bullet.SetDirection(direction);
         }
 
         /// <summary>
         /// íeÇê∂ê¨
         /// </summary>
-        private Bullet CreateBullet(Bullet bullet, Vector3 createPos)
+        private T CreateBullet(T bullet, Vector3 createPos)
         {
             return Instantiate(bullet, createPos, Quaternion.identity);
         }

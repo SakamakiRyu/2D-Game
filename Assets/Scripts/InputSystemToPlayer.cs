@@ -6,7 +6,6 @@ namespace UniversWar
     /// <summary>
     /// InputSystem‚ÆPlayer‚Ì’‡‰îƒNƒ‰ƒX
     /// </summary>
-    [RequireComponent(typeof(PlayerMover),typeof(Canon))]
     public sealed class InputSystemToPlayer : MonoBehaviour
     {
         [SerializeField]
