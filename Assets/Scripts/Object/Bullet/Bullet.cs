@@ -6,7 +6,7 @@ namespace UniversWar
     /// 弾コンポーネント
     /// </summary>
     [RequireComponent(typeof(Rigidbody2D))]
-    public class T : MonoBehaviour
+    public class Bullet : MonoBehaviour
     {
         #region Field
         [SerializeField]

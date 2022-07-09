@@ -1,7 +1,7 @@
 namespace UnityEngine
 {
     /// <summary>
-    /// RigidBody2Dの拡張メソッドクラス
+    /// RigidBody2Dの拡張クラス
     /// </summary>
     public static class RigidBody2DExtensions
     {

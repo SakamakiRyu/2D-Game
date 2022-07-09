@@ -8,10 +8,10 @@ namespace UniversWar
     public sealed class Canon : MonoBehaviour
     {
         [SerializeField]
-        private Transform _muzzleTransform;
+        private Transform[] MuzzlesTransform;
 
         [SerializeField]
-        private T _bulletPrefab;
+        private Bullet _bulletPrefab;
 
         public void RequestFire(Vector2 dir) => Fire(dir);
 
@@ -21,17 +21,31 @@ namespace UniversWar
         /// <param name="direction">発射する方向</param>
         private void Fire(Vector2 direction)
         {
-            var bullet = CreateBullet(_bulletPrefab, _muzzleTransform.position);
-            bullet.GetComponent<T>();
+            var bullet = CreateBullet(_bulletPrefab, MuzzlesTransform[0].position);
+            bullet.GetComponent<Bullet>();
             bullet.SetDirection(direction);
         }
 
         /// <summary>
         /// 弾を生成
         /// </summary>
-        private T CreateBullet(T bullet, Vector3 createPos)
+        private Bullet CreateBullet(Bullet bullet, Vector3 createPos)
         {
             return Instantiate(bullet, createPos, Quaternion.identity);
+        }
+
+        public void AddElementToArray()
+        {
+            GetMuzzleFromChildren();
+        }
+
+        /// <summary>
+        /// 自身の子オブジェクトをMuzzleに設定する
+        /// </summary>
+        private void GetMuzzleFromChildren()
+        {
+            var muzzles = this.GetComponentsInChildrenOnly<Transform>();
+            MuzzlesTransform = muzzles;
         }
     }
 }
