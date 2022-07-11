@@ -4,7 +4,7 @@ public class GameManager : MonoBehaviour
 {
     private void Start()
     {
-        
+
     }
 
     private void OnEnable()
