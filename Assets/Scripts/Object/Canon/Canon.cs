@@ -14,7 +14,7 @@ namespace UniversWar
         private Transform _muzzleTransform;
 
         [SerializeField]
-        private Bullet _bulletPrefab;
+        private BulletManager _bulletManager; 
 
         [SerializeField]
         private float _defaultInterval = 0.5f;
@@ -59,7 +59,7 @@ namespace UniversWar
                 // インターバル
                 yield return IEnumeratorExtensions.WaitAsync(_interval);
                 // 弾の生成
-                var bullet = _bulletPrefab.CreateBullet(transform.parent);
+                var bullet = _bulletManager.GetBullet(transform);
                 // 弾の情報を設定する
                 bullet.SetDate(_muzzleTransform.position, dir);
                 yield return null;

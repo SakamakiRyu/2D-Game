@@ -14,6 +14,10 @@ namespace UniversWar
         [SerializeField]
         private Canon _canon;
 
+        private void Awake()
+        {
+        }
+
         public void OnMove(InputAction.CallbackContext context)
         {
             var dir = context.ReadValue<Vector2>();

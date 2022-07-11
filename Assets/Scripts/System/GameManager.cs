@@ -1,12 +1,8 @@
 using UnityEngine;
+using DragonPackage;
 
 public class GameManager : MonoBehaviour
 {
-    private void Start()
-    {
-
-    }
-
     private void OnEnable()
     {
         ServiceLocator<GameManager>.Bind(this);

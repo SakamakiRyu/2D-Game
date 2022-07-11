@@ -11,11 +11,11 @@ namespace UniversWar
         [SerializeField]
         private Bullet _bulletPrefab;
 
-        private ObjectPool<GameObject> Pool;
+        private ObjectPool<Bullet> Pool;
 
         private void Awake()
         {
-            Pool = new ObjectPool<GameObject>(
+            Pool = new ObjectPool<Bullet>(
                 OnCreatePoolObject,
                 OnGetFromPool,
                 OnReleaseToPool,
@@ -23,37 +23,36 @@ namespace UniversWar
                 );
         }
 
-        public GameObject OnCreatePoolObject()
+        public Bullet OnCreatePoolObject()
         {
-            return Instantiate(_bulletPrefab.gameObject);
+            return Instantiate(_bulletPrefab);
         }
 
-        private void OnGetFromPool(GameObject go)
+        private void OnGetFromPool(Bullet go)
         {
-            go.SetActive(true);
+            go.gameObject.SetActive(true);
         }
 
-        private void OnReleaseToPool(GameObject go)
+        private void OnReleaseToPool(Bullet go)
         {
-            go.SetActive(false);
+            go.gameObject.SetActive(false);
         }
 
-        private void OnDestroyPooledObject(GameObject go)
+        private void OnDestroyPooledObject(Bullet go)
         {
-            Destroy(go);
+            Destroy(go.gameObject);
         }
 
-        public GameObject GetGameObject(Bullet go, Vector3 position, Quaternion rotation)
+        public Bullet GetBullet(Vector3 position, Quaternion rotation)
         {
-            _bulletPrefab = go.GetComponent<Bullet>();
-            var obj = Pool.Get();
-            var transform = obj.transform;
+            var bullet = Pool.Get();
+            var transform = bullet.transform;
             transform.position = position;
             transform.rotation = rotation;
-            return obj;
+            return bullet;
         }
 
-        public void ReleaseGameObject(GameObject go)
+        public void ReleaseGameObject(Bullet go)
         {
             Pool.Release(go);
         }

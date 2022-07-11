@@ -13,34 +13,32 @@ namespace UniversWar
         [SerializeField]
         private float _defaultSpeed;
 
-        [SerializeField]
         private Rigidbody2D _rb2d;
         #endregion
 
         #region Unity Function
+        private void Awake()
+        {
+            _rb2d = GetComponent<Rigidbody2D>();
+        }
+
         private void OnBecameInvisible()
         {
-            Destroy(this.gameObject);
         }
         #endregion
 
         #region Public Function
+        public void Shoot(Vector3 postion, Vector3 direction, float speed)
+        {
+            _rb2d.SetVelocity()
+        }
+
         /// <summary>
         /// íeë¨ÇïœçXÇ∑ÇÈ
         /// </summary>
         public void ChengeSpeed(float speed)
         {
             _defaultSpeed = speed;
-        }
-
-        /// <summary>
-        /// íeÇê∂ê¨Ç∑ÇÈ
-        /// </summary>
-        public Bullet CreateBullet(Transform parent)
-        {
-            var bullet = Instantiate(this.gameObject, parent).GetComponent<Bullet>();
-            bullet.transform.parent = parent;
-            return bullet;
         }
 
         /// <summary>
