@@ -11,16 +11,20 @@ namespace UniversWar
     {
         #region Field
         [SerializeField]
-        private Rigidbody2D _rb2d;
+        private float _defaultMovingSpeed;
 
-        [SerializeField]
-        private float _movingSpeed;
+        private Rigidbody2D _rb2d;
         #endregion
 
         #region Property
         #endregion
 
         #region Unity Function
+        private void Awake()
+        {
+            _rb2d = GetComponent<Rigidbody2D>();
+        }
+
         private void OnValidate()
         {
             if (_rb2d)
@@ -54,7 +58,7 @@ namespace UniversWar
         /// <returns>速度ベクトル</returns>
         private Vector2 CreateVelocity(Vector2 dir)
         {
-            return dir * _movingSpeed;
+            return dir * _defaultMovingSpeed;
         }
     }
 }

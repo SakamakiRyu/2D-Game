@@ -59,9 +59,9 @@ namespace UniversWar
                 // インターバル
                 yield return IEnumeratorExtensions.WaitAsync(_interval);
                 // 弾の生成
-                var bullet = _bulletManager.GetBullet(transform);
+                // var bullet = _bulletManager.GetBullet(transform);
                 // 弾の情報を設定する
-                bullet.SetDate(_muzzleTransform.position, dir);
+                //bullet.SetDate(_muzzleTransform.position, dir);
                 yield return null;
             }
         }

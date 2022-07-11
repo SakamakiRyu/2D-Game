@@ -28,9 +28,14 @@ namespace UniversWar
         #endregion
 
         #region Public Function
-        public void Shoot(Vector3 postion, Vector3 direction, float speed)
+        /// <summary>
+        /// 弾を発射する
+        /// </summary>
+        public void Shoot(Vector3 postion, Vector2 direction, float speed)
         {
-            _rb2d.SetVelocity()
+            this.transform.position = postion;
+            var velo = direction * speed;
+            _rb2d.SetVelocity(velo);
         }
 
         /// <summary>
@@ -47,13 +52,13 @@ namespace UniversWar
         public void SetDate(Vector3 pos, Vector2 direction)
         {
             SetPosition(pos);
-            SetDirection(direction);
+            SetVelocuty(direction);
         }
 
         /// <summary>
         /// 弾の速度ベクトルを設定する
         /// </summary>
-        private void SetDirection(Vector2 direction)
+        private void SetVelocuty(Vector2 direction)
         {
             var velo = direction * _defaultSpeed;
             _rb2d.SetVelocity(velo);

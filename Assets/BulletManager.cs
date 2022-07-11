@@ -15,6 +15,6 @@ public class BulletManager : MonoBehaviour
 
     public Bullet GetBullet(Transform Transform)
     {
-        return _bulletPool.GetBullet(Transform.position, Quaternion.identity);
+        return null;
     }
 }
