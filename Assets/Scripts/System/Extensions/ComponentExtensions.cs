@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace UniversWar
+namespace DragonPackage
 {
     /// <summary>
     /// Component‚ÌŠg’£ƒNƒ‰ƒX

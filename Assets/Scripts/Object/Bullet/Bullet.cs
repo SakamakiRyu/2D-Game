@@ -1,4 +1,5 @@
 using UnityEngine;
+using DragonPackage;
 
 namespace UniversWar
 {
@@ -10,26 +11,62 @@ namespace UniversWar
     {
         #region Field
         [SerializeField]
-        private float _speed;
+        private float _defaultSpeed;
 
         [SerializeField]
         private Rigidbody2D _rb2d;
         #endregion
 
         #region Unity Function
+        private void OnBecameInvisible()
+        {
+            Destroy(this.gameObject);
+        }
         #endregion
 
         #region Public Function
         /// <summary>
+        /// ’e‘¬‚ğ•ÏX‚·‚é
+        /// </summary>
+        public void ChengeSpeed(float speed)
+        {
+            _defaultSpeed = speed;
+        }
+
+        /// <summary>
+        /// ’e‚ğ¶¬‚·‚é
+        /// </summary>
+        public Bullet CreateBullet(Transform parent)
+        {
+            var bullet = Instantiate(this.gameObject, parent).GetComponent<Bullet>();
+            bullet.transform.parent = parent;
+            return bullet;
+        }
+
+        /// <summary>
+        /// ’e‚Ìî•ñ‚ğİ’è‚·‚é
+        /// </summary>
+        public void SetDate(Vector3 pos, Vector2 direction)
+        {
+            SetPosition(pos);
+            SetDirection(direction);
+        }
+
+        /// <summary>
         /// ’e‚Ì‘¬“xƒxƒNƒgƒ‹‚ğİ’è‚·‚é
         /// </summary>
-        public void SetDirection(Vector2 direction)
+        private void SetDirection(Vector2 direction)
         {
-            if (_rb2d)
-            {
-                var velo = direction * _speed;
-                _rb2d.SetVelocity(velo);
-            }
+            var velo = direction * _defaultSpeed;
+            _rb2d.SetVelocity(velo);
+        }
+
+        /// <summary>
+        /// ’e‚Ì”­Ë‚·‚éÀ•W‚ğİ’è‚·‚é
+        /// </summary>
+        private void SetPosition(Vector3 position)
+        {
+            transform.position = position;
         }
         #endregion
     }

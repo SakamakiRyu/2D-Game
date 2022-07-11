@@ -1,4 +1,6 @@
-namespace UnityEngine
+using UnityEngine;
+
+namespace DragonPackage
 {
     /// <summary>
     /// RigidBody2D‚ÌŠg’£ƒNƒ‰ƒX
@@ -15,3 +17,4 @@ namespace UnityEngine
         }
     }
 }
+

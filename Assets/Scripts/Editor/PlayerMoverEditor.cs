@@ -2,14 +2,14 @@ using UnityEditor;
 
 namespace UniversWar
 {
-    [CustomEditor(typeof(Canon))]
-    public class CanonEditor : Editor
+    [CustomEditor(typeof(PlayerMover))]
+    public class PlayerMoverEditor : Editor
     {
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
 
-            var canon = target as Canon;
+            var mover = target as PlayerMover;
         }
     }
 }
