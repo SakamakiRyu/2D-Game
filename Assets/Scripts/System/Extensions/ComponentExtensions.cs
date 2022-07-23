@@ -2,9 +2,6 @@ using UnityEngine;
 
 namespace DragonPackage
 {
-    /// <summary>
-    /// Component‚ÌŠg’£ƒNƒ‰ƒX
-    /// </summary>
     public static class ComponentExtensions
     {
         public static T[] GetComponentsInChildrenOnly<T>(this Component component) where T : class

@@ -1,15 +1,35 @@
 using UnityEngine;
 using DragonPackage;
 
-public class GameManager : MonoBehaviour
+namespace UniversWar
 {
-    private void OnEnable()
+    public class GameManager : MonoBehaviour
     {
-        ServiceLocator<GameManager>.Bind(this);
-    }
+        [SerializeField]
+        private GameObject _playerPrefab;
 
-    private void OnDisable()
-    {
-        ServiceLocator<GameManager>.UnBind(this);
+        [SerializeField]
+        private Transform _playerSpawnPoint;
+
+        private void Start()
+        {
+            SpawnPlayer();
+        }
+
+        private void OnEnable()
+        {
+            ServiceLocator<GameManager>.Bind(this);
+        }
+
+        private void OnDisable()
+        {
+            ServiceLocator<GameManager>.UnBind(this);
+        }
+
+        private void SpawnPlayer()
+        {
+            var go = Instantiate(_playerPrefab);
+            go.transform.position = _playerSpawnPoint.position;
+        }
     }
 }
