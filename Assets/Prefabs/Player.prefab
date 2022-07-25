@@ -1,52 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4377154413687754070
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4377154413687754068}
-  - component: {fileID: 900681947273421105}
-  m_Layer: 0
-  m_Name: Canon
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4377154413687754068
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4377154413687754070}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4377154414687659333}
-  m_Father: {fileID: 4377154415290554556}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &900681947273421105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4377154413687754070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed995d2c27ce3b64c8b47b9720aca182, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _muzzleTransform: {fileID: 4377154414687659333}
-  _bulletSpeed: 10
 --- !u!1 &4377154414687659332
 GameObject:
   m_ObjectHideFlags: 0
@@ -70,12 +23,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4377154414687659332}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4377154413687754068}
+  m_Father: {fileID: 4377154415290554556}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4377154415290554554
@@ -89,9 +42,10 @@ GameObject:
   - component: {fileID: 4377154415290554556}
   - component: {fileID: 4377154415290554559}
   - component: {fileID: 4377154415290554558}
-  - component: {fileID: 4377154415290554553}
-  - component: {fileID: 4377154415290554552}
   - component: {fileID: 4377154415290554555}
+  - component: {fileID: 4377154415290554552}
+  - component: {fileID: 4377154415290554553}
+  - component: {fileID: 2773681602441218551}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -111,7 +65,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4377154413687754068}
+  - {fileID: 4377154414687659333}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -188,19 +142,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4377154415290554553
-MonoBehaviour:
+--- !u!61 &4377154415290554555
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4377154415290554554}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ded678c53f267614ba8a884a8f91a7f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _movingSpeed: 5
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!114 &4377154415290554552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,8 +211,8 @@ MonoBehaviour:
     m_ActionName: InGame/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UniversWar.Canon, Assembly-CSharp
+      - m_Target: {fileID: 2773681602441218551}
+        m_TargetAssemblyTypeName: UniversWar.PlayerCanon, Assembly-CSharp
         m_MethodName: OnFire
         m_Mode: 0
         m_Arguments:
@@ -263,29 +230,30 @@ MonoBehaviour:
   m_DefaultActionMap: InGame
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!61 &4377154415290554555
-BoxCollider2D:
+--- !u!114 &4377154415290554553
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4377154415290554554}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ded678c53f267614ba8a884a8f91a7f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movingSpeed: 5
+--- !u!114 &2773681602441218551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4377154415290554554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed995d2c27ce3b64c8b47b9720aca182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _muzzleTransform: {fileID: 4377154414687659333}
+  _bulletSpeed: 10
