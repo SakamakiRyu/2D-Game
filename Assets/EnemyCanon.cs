@@ -1,18 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
+using DragonPackage;
 using UnityEngine;
 
-public class EnemyCanon : MonoBehaviour
+namespace UniversWar
 {
-    // Start is called before the first frame update
-    void Start()
+    public class EnemyCanon : CanonBase
     {
-        
-    }
+        [SerializeField]
+        private PlayerMover _playerMover;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        [SerializeField]
+        private float _different;
+
+        private void Update()
+        {
+            if (FindPlayer())
+            {
+            }
+        }
+
+        private bool FindPlayer()
+        {
+            var currentY = this.transform.position.y;
+            var y = _playerMover.transform.position.y;
+            var minY = y - _different;
+            var maxY = y + _different;
+
+            var result = currentY > minY && currentY < maxY;
+
+            if (result)
+            {
+                Fire();
+                return true;
+            }
+            return false;
+        }
+
+        protected override void Fire()
+        {
+            if (ServiceLocator<IBulletManager>.IsValid)
+            {
+                var bullet = ServiceLocator<IBulletManager>.Instance.Get(_muzzleTransform.position);
+                bullet.Shoot(Vector2.left, _bulletSpeed);
+            }
+        }
     }
 }
