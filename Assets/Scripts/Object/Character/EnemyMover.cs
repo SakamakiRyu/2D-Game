@@ -6,12 +6,6 @@ namespace UniversWar
     [RequireComponent(typeof(Rigidbody2D))]
     public class EnemyMover : MonoBehaviour
     {
-        public enum MovePattern
-        {
-            None,
-            Circle
-        }
-
         [SerializeField]
         private float _movingSpeed;
 
@@ -20,36 +14,23 @@ namespace UniversWar
 
         private Rigidbody2D _rb2d;
 
-        private MovePattern _movePattern { get; set; } = MovePattern.None;
+        private Vector3 _basePos;
 
         private void Awake()
         {
             _rb2d = GetComponent<Rigidbody2D>();
-        }
-
-        private void Start()
-        {
-            _movePattern = MovePattern.Circle;
+            _basePos = transform.position;
         }
 
         private void Update()
         {
-            switch (_movePattern)
-            {
-                case MovePattern.None:
-                    break;
-                case MovePattern.Circle:
-                    transform.position = CircleMove(_redius, _movingSpeed);
-                    break;
-                default:
-                    break;
-            }
+            transform.position = CircleMove(_redius, _movingSpeed);
         }
 
         private Vector3 CircleMove(float radius, float moveSpeed)
         {
-            var y = radius * Mathf.Sin(Time.time * moveSpeed);
-            return new Vector3(0f, y, 0f);
+            var y = _basePos.y + (radius * Mathf.Sin(Time.time * moveSpeed));
+            return new Vector3(_basePos.x, y, 0f);
         }
     }
 }
