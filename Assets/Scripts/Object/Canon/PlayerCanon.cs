@@ -6,6 +6,9 @@ namespace UniversWar
 {
     public class PlayerCanon : CanonBase
     {
+        [SerializeField]
+        private float _bulletSpeed;
+
         public void OnFire(InputAction.CallbackContext context)
         {
             if (context.started)

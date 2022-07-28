@@ -7,9 +7,6 @@ namespace UniversWar
         #region Field
         [SerializeField]
         protected Transform _muzzleTransform;
-
-        [SerializeField]
-        protected float _bulletSpeed;
         #endregion
 
         protected abstract void Fire();
