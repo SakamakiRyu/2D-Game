@@ -7,10 +7,7 @@ namespace UniversWar
     public class EnemyMover : MonoBehaviour
     {
         [SerializeField]
-        private float _movingSpeed;
-
-        [SerializeField]
-        private float _redius;
+        private EnemyDate _date;
 
         private Rigidbody2D _rb2d;
 
@@ -24,7 +21,7 @@ namespace UniversWar
 
         private void Update()
         {
-            transform.position = CircleMove(_redius, _movingSpeed);
+            transform.position = CircleMove(_date.Redius, _date.MoveSpeed);
         }
 
         private Vector3 CircleMove(float radius, float moveSpeed)
