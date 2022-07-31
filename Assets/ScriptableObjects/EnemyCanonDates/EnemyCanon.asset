@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3142f98c2b8adce40802cb5dcaa64170, type: 3}
   m_Name: EnemyCanon
   m_EditorClassIdentifier: 
-  _bulletSpeed: 10
-  _range: 0.3
-  _chargeTime: 0.5
+  _bulletSpeed: 5
+  _range: 0.5
+  _chargeTime: 0.1
