@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 43b814ef68cda0a4bb1244621d903ba6, type: 3}
-  m_Name: EnemyStatus
+  m_Name: EnemyDate
   m_EditorClassIdentifier: 
+  _maxHP: 5
   _moveSpeed: 3
   _redius: 2
+  _canonDate: {fileID: 11400000, guid: a90031ab90afd704b844e7790499344f, type: 2}

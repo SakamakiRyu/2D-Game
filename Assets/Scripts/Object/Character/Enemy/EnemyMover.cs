@@ -6,8 +6,8 @@ namespace UniversWar
     [RequireComponent(typeof(Rigidbody2D))]
     public class EnemyMover : MonoBehaviour
     {
-        [SerializeField]
-        private EnemyDate _date;
+        public float Radius { get; set; }
+        public float MoveSpeed { get; set; }
 
         private Rigidbody2D _rb2d;
 
@@ -16,12 +16,16 @@ namespace UniversWar
         private void Awake()
         {
             _rb2d = GetComponent<Rigidbody2D>();
+        }
+
+        private void Start()
+        {
             _basePos = transform.position;
         }
 
         private void Update()
         {
-            transform.position = CircleMove(_date.Redius, _date.MoveSpeed);
+            transform.position = CircleMove(Radius, MoveSpeed);
         }
 
         private Vector3 CircleMove(float radius, float moveSpeed)

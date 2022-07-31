@@ -16,6 +16,16 @@ namespace UniversWar
             _rb2d = GetComponent<Rigidbody2D>();
         }
 
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            var hitable = collision.GetComponent<IHitable>();
+            if (hitable != null)
+            {
+                hitable.OnHit();
+            }
+            this.gameObject.SetActive(false);
+        }
+
         private void OnBecameInvisible()
         {
             this.gameObject.SetActive(false);

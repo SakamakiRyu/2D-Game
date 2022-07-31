@@ -1,11 +1,14 @@
 using UnityEngine;
 
-public class StatusBase : MonoBehaviour
+namespace UniversWar
 {
-    public int CurrentHP { get; protected set; }
-
-    public void AddDamage(int damage = 1)
+    public class StatusBase : MonoBehaviour
     {
-        CurrentHP--;
+        public int CurrentHP { get; protected set; }
+
+        public void AddDamage(int damage = 1)
+        {
+            CurrentHP--;
+        }
     }
 }

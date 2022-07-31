@@ -6,11 +6,9 @@ namespace UniversWar
 {
     public class EnemyCanon : CanonBase
     {
-        [SerializeField]
-        private PlayerMover _playerMover;
+        public Player Player { get; set; }
 
-        [SerializeField]
-        private EnemyCanonDate _canonDate;
+        public EnemyCanonDate CanonDate { get; set; }
 
         // íeÇ™Ç†ÇÈÇ©
         private bool _hasBullet { get; set; } = true;
@@ -33,11 +31,11 @@ namespace UniversWar
             // é©êgÇÃyç¿ïW
             var currentY = this.transform.position.y;
             // ëŒè€ÇÃç¿ïW
-            var targetPosY = _playerMover.transform.position.y;
+            var targetPosY = Player.transform.position.y;
             // ìÒì_ÇÃÇôç¿ïWãóó£
             var def = Mathf.Abs(targetPosY - currentY);
             // çUåÇÇ∑ÇÈÇ©
-            var isFire = def < _canonDate.Range;
+            var isFire = def < CanonDate.Range;
 
             if (isFire is false)
             {
@@ -58,7 +56,7 @@ namespace UniversWar
             if (ServiceLocator<IBulletManager>.IsValid)
             {
                 var bullet = ServiceLocator<IBulletManager>.Instance.Get(_muzzleTransform.position);
-                bullet.Shoot(Vector2.left, _canonDate.BulletSpeed);
+                bullet.Shoot(Vector2.left, CanonDate.BulletSpeed);
                 _hasBullet = false;
                 // íeÇÃè[ìU
                 StartCoroutine(ChergeBulletAsync());
@@ -71,7 +69,7 @@ namespace UniversWar
         private IEnumerator ChergeBulletAsync()
         {
             var timer = 0f;
-            while (timer < _canonDate.ChargeTime)
+            while (timer < CanonDate.ChargeTime)
             {
                 timer += Time.deltaTime;
                 yield return null;

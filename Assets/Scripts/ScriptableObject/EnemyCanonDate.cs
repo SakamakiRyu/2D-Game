@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "EnemyCanon", menuName = "Date/Enemy/Canon")]
+[CreateAssetMenu(fileName = "EnemyCanon", menuName = "Date/Canon")]
 public class EnemyCanonDate : ScriptableObject
 {
     [SerializeField]
