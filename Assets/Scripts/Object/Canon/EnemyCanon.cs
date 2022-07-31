@@ -6,9 +6,11 @@ namespace UniversWar
 {
     public class EnemyCanon : CanonBase
     {
-        public Player Player { get; set; }
+        [SerializeField]
+        private EnemyCanonDate _canonDate;
 
-        public EnemyCanonDate CanonDate { get; set; }
+        [SerializeField]
+        public Player _player;
 
         // ’e‚ª‚ ‚é‚©
         private bool _hasBullet { get; set; } = true;
@@ -21,7 +23,6 @@ namespace UniversWar
         /// <summary>
         /// UŒ‚‚·‚é‚©
         /// </summary>
-        /// <returns></returns>
         private bool IsFired()
         {
             // ’e‚ª–³‚©‚Á‚½‚ç‰½‚à‚µ‚È‚¢
@@ -31,11 +32,11 @@ namespace UniversWar
             // ©g‚ÌyÀ•W
             var currentY = this.transform.position.y;
             // ‘ÎÛ‚ÌÀ•W
-            var targetPosY = Player.transform.position.y;
+            var targetPosY = _player.transform.position.y;
             // “ñ“_‚Ì‚™À•W‹——£
             var def = Mathf.Abs(targetPosY - currentY);
             // UŒ‚‚·‚é‚©
-            var isFire = def < CanonDate.Range;
+            var isFire = def < _canonDate.Range;
 
             if (isFire is false)
             {
@@ -56,7 +57,7 @@ namespace UniversWar
             if (ServiceLocator<IBulletManager>.IsValid)
             {
                 var bullet = ServiceLocator<IBulletManager>.Instance.Get(_muzzleTransform.position);
-                bullet.Shoot(Vector2.left, CanonDate.BulletSpeed);
+                bullet.Shoot(Vector2.left, _canonDate.BulletSpeed);
                 _hasBullet = false;
                 // ’e‚Ì[“U
                 StartCoroutine(ChergeBulletAsync());
@@ -69,7 +70,7 @@ namespace UniversWar
         private IEnumerator ChergeBulletAsync()
         {
             var timer = 0f;
-            while (timer < CanonDate.ChargeTime)
+            while (timer < _canonDate.ChargeTime)
             {
                 timer += Time.deltaTime;
                 yield return null;

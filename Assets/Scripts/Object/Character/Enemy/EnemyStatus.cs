@@ -10,6 +10,16 @@ namespace UniversWar
         public void AddDamage()
         {
             CurrentHP--;
+
+            if (IsDead())
+            {
+                this.gameObject.SetActive(false);
+            }
+        }
+
+        private bool IsDead()
+        {
+            return CurrentHP < 0;
         }
     }
 }
