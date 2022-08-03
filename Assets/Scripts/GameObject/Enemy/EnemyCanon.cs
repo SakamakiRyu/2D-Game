@@ -25,8 +25,8 @@ namespace UniversWar
         /// </summary>
         private bool IsFired()
         {
-            // 弾が無かったら何もしない
-            if (_hasBullet is false)
+            // 弾が無かったorPlayerが参照出来なかったら何もしない
+            if (_hasBullet is false || _player is null)
                 return false;
 
             // 自身のy座標
@@ -34,9 +34,9 @@ namespace UniversWar
             // 対象の座標
             var targetPosY = _player.transform.position.y;
             // 二点のｙ座標距離
-            var def = Mathf.Abs(targetPosY - currentY);
+            var distance = Mathf.Abs(targetPosY - currentY);
             // 攻撃するか
-            var isFire = def < _canonDate.Range;
+            var isFire = distance < _canonDate.Range;
 
             if (isFire is false)
             {
